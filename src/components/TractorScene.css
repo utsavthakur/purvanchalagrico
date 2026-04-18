@@ -1,0 +1,273 @@
+.tractor-scene-container {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  background: linear-gradient(to bottom, #87ceeb 0%, #e0f2fe 100%);
+  overflow: hidden;
+  border-radius: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Sky Elements */
+.sun {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #fdb813 0%, #f9d71c 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px #fdb813;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+.sun-rays {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100px;
+  height: 100px;
+  animation: rotate 20s linear infinite;
+}
+
+.sun-rays::before, .sun-rays::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 20px;
+  background: rgba(253, 184, 19, 0.3);
+  border-radius: 10px;
+}
+
+.sun-rays::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 20px;
+  opacity: 0.8;
+  filter: blur(1px);
+}
+
+.cloud::after, .cloud::before {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.cloud-1 {
+  width: 100px;
+  height: 30px;
+  top: 80px;
+  animation: drift 30s linear infinite;
+}
+
+.cloud-1::after { width: 50px; height: 50px; top: -25px; left: 15px; }
+.cloud-1::before { width: 40px; height: 40px; top: -15px; left: 45px; }
+
+/* Hills */
+.hill {
+  position: absolute;
+  bottom: 0;
+  width: 150%;
+  height: 200px;
+  border-radius: 50% 50% 0 0;
+}
+
+.hill-back {
+  background: linear-gradient(to bottom, #2d6a4f 0%, #1b4332 100%);
+  left: -25%;
+  bottom: -50px;
+  z-index: 1;
+}
+
+.hill-middle {
+  background: linear-gradient(to bottom, #40916c 0%, #2d6a4f 100%);
+  left: -10%;
+  bottom: -80px;
+  z-index: 2;
+  animation: sway 10s infinite ease-in-out;
+}
+
+.hill-front {
+  background: linear-gradient(to bottom, #52b788 0%, #40916c 100%);
+  left: -20%;
+  bottom: -110px;
+  z-index: 3;
+}
+
+/* Tractor */
+.tractor-wrapper {
+  position: absolute;
+  bottom: 80px;
+  left: -200px;
+  z-index: 10;
+  animation: drive 15s linear infinite;
+}
+
+.tractor {
+  position: relative;
+  width: 160px;
+  height: 100px;
+  animation: bounce 0.5s infinite ease-in-out;
+}
+
+.tractor-body {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  width: 100px;
+  height: 50px;
+  background: #e87c1e; /* ACE Orange */
+  border-radius: 10px 30px 5px 5px;
+  box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
+}
+
+.tractor-cabin {
+  position: absolute;
+  bottom: 80px;
+  left: 45px;
+  width: 50px;
+  height: 40px;
+  background: #333;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+}
+
+.cabin-window {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 40px;
+  height: 30px;
+  background: #87ceeb;
+  opacity: 0.6;
+}
+
+.tractor-exhaust {
+  position: absolute;
+  bottom: 80px;
+  left: 30px;
+  width: 8px;
+  height: 40px;
+  background: #555;
+  border-radius: 2px;
+}
+
+.smoke {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background: rgba(100, 100, 100, 0.4);
+  border-radius: 50%;
+  animation: smoke 1s infinite;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 0;
+  background: #222;
+  border: 4px dashed #444;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+}
+
+.wheel-front {
+  left: 20px;
+  width: 40px;
+  height: 40px;
+}
+
+.wheel-back {
+  left: 80px;
+  width: 65px;
+  height: 65px;
+  bottom: -5px;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes drift {
+  from { left: -150px; }
+  to { left: 110%; }
+}
+
+@keyframes drift-reverse {
+  from { right: -150px; }
+  to { right: 110%; }
+}
+
+@keyframes drive {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(calc(100vw + 200px)); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px) rotate(1deg); }
+}
+
+@keyframes smoke {
+  0% { transform: translate(0, 0) scale(0.5); opacity: 0.8; }
+  100% { transform: translate(20px, -40px) scale(2); opacity: 0; }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg) skewX(0deg); }
+  50% { transform: rotate(1deg) skewX(2deg); }
+}
+
+/* Grass Section */
+.grass-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.blade {
+  width: 3px;
+  height: 15px;
+  background: #1b4332;
+  border-radius: 5px 5px 0 0;
+  animation: sway 2s infinite ease-in-out;
+  transform-origin: bottom;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .tractor-scene-container {
+    height: 350px;
+  }
+  .tractor-wrapper {
+    scale: 0.8;
+  }
+}
