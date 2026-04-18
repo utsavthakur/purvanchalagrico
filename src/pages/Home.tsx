@@ -71,6 +71,7 @@ const Home = () => {
               transition={{ duration: 1.5 }}
               src={images[currentImageIndex]}
               className="w-full h-full object-cover absolute inset-0"
+              {...(currentImageIndex === 0 ? { fetchpriority: "high" } as any : { loading: "lazy" } as any)}
             />
           </AnimatePresence>
           <div className="absolute inset-0 bg-black/60 bg-gradient-to-t from-black/80 via-black/40 to-black/30 z-10"></div>
@@ -82,9 +83,9 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1]">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1]">
               Elevating Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] to-[#e87c1e]">Farming</span> <br className="hidden sm:block" />
-              <div className="relative inline-block min-w-[300px]">
+              <div className="relative inline-block min-w-[240px] sm:min-w-[300px]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={wordIndex}
@@ -127,7 +128,7 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-16 md:py-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -175,7 +176,7 @@ const Home = () => {
 
 
       {/* Tractor Showcase Gallery */}
-      <section className="py-24 bg-gray-50 overflow-hidden border-t border-gray-100">
+      <section className="py-16 md:py-24 bg-gray-50 overflow-hidden border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 mb-12 flex justify-between items-end">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 mb-2">Our Premium Fleet</h2>
@@ -208,11 +209,12 @@ const Home = () => {
               <motion.div 
                 key={idx}
                 whileHover={{ scale: 1.1, y: -10 }}
-                className="w-[400px] h-[300px] flex-shrink-0 flex items-center justify-center transition-all cursor-pointer group px-4"
+                className="w-[280px] md:w-[400px] h-[220px] md:h-[300px] flex-shrink-0 flex items-center justify-center transition-all cursor-pointer group px-4"
               >
                 <img 
                   src={img} 
                   alt={`Tractor ${idx}`} 
+                  loading="lazy"
                   className="w-full h-full object-contain filter drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)] group-hover:drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)] transition-all duration-500" 
                 />
               </motion.div>

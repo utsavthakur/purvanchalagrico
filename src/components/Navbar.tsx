@@ -90,22 +90,22 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t overflow-hidden absolute top-[80px] left-0 w-full"
+            className="md:hidden bg-white/90 backdrop-blur-xl border-t overflow-hidden absolute top-[80px] left-0 w-full z-[60] shadow-2xl"
           >
-            <div className="px-4 pt-2 pb-6 space-y-1 shadow-lg">
+            <div className="px-6 pt-4 pb-8 space-y-2">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.path}
                   className={({ isActive }) => 
-                    `block w-full text-left px-3 py-3 text-base font-medium rounded-md transition-colors ${isActive ? 'bg-gray-100 text-[#e87c1e]' : 'text-gray-900 hover:bg-gray-50'}`
+                    `block w-full text-left px-4 py-4 text-lg font-bold rounded-2xl transition-all ${isActive ? 'bg-[#1a4d2e]/10 text-[#e87c1e]' : 'text-gray-900 hover:bg-gray-50'}`
                   }
                 >
                   {link.name}
                 </NavLink>
               ))}
-              <a href={`tel:${BUSINESS_DETAILS.phone}`} className="mt-4 flex items-center justify-center w-full bg-[#1a4d2e] text-white px-4 py-3 rounded-md font-medium">
-                <Phone className="w-5 h-5 mr-2" />
+              <a href={`tel:${BUSINESS_DETAILS.phone}`} className="mt-6 flex items-center justify-center w-full bg-[#1a4d2e] text-white px-4 py-4 rounded-2xl font-bold text-lg shadow-lg shadow-[#1a4d2e]/20">
+                <Phone className="w-5 h-5 mr-3" />
                 {BUSINESS_DETAILS.phone}
               </a>
             </div>

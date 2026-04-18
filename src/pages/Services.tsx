@@ -49,11 +49,12 @@ const Services = () => {
   return (
     <div className="bg-white">
       {/* Premium Raw Header - Best Professional Setup */}
-      <section className="relative h-[650px] bg-white overflow-hidden flex items-center px-[8%]">
+      <section className="relative h-[450px] md:h-[650px] bg-white overflow-hidden flex items-center px-6 md:px-[8%]">
         <div className="absolute inset-0 z-0">
           <img 
             src="/services.png" 
             alt="Services Header" 
+            fetchpriority="high"
             className="w-full h-full object-cover"
           />
         </div>
@@ -67,7 +68,7 @@ const Services = () => {
             <h1 className="text-5xl md:text-8xl font-black tracking-tighter mb-6 text-white drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
               Elite Services
             </h1>
-            <p className="text-xl md:text-3xl text-white font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="text-lg md:text-3xl text-white font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Providing the highest standard of agricultural machinery support, genuine parts, and expert engineering consultancy.
             </p>
           </motion.div>
@@ -89,9 +90,9 @@ const Services = () => {
 
         <div className="relative z-10">
           {serviceChapters.map((chapter, i) => (
-            <div key={i} className={`py-32 ${i % 2 === 1 ? 'bg-neutral-50/70' : 'bg-white/70'}`}>
+            <div key={i} className={`py-16 md:py-32 ${i % 2 === 1 ? 'bg-neutral-50/70' : 'bg-white/70'}`}>
             <div className="max-w-7xl mx-auto px-4">
-              <div className={`flex flex-col lg:flex-row items-center gap-16 lg:gap-24 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
+              <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-24 ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
                 {/* Content Side */}
                 <motion.div 
                   initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
@@ -134,8 +135,13 @@ const Services = () => {
                   className="lg:w-1/2 relative"
                 >
                   <div className="relative group overflow-hidden rounded-2xl shadow-2xl">
-                    <img src={chapter.image} alt={chapter.title} className="w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-12 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                    <img 
+                      src={chapter.image} 
+                      alt={chapter.title} 
+                      loading="lazy"
+                      className="w-full h-[350px] md:h-[600px] object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 md:p-12 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                       <div className="text-white">
                         <div className="mb-4">{chapter.icon}</div>
                         <p className="font-bold text-lg uppercase tracking-widest">{chapter.title}</p>

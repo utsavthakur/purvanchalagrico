@@ -29,11 +29,12 @@ const Contact = () => {
   return (
     <div className="">
       {/* Header - Professional Setup */}
-      <section className="relative h-[500px] text-white overflow-hidden flex items-center px-[8%]">
+      <section className="relative h-[350px] md:h-[500px] text-white overflow-hidden flex items-center px-6 md:px-[8%]">
         <div className="absolute inset-0 z-0">
           <img 
             src="/contact.png" 
             alt="Contact Background" 
+            fetchpriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60 z-10"></div>
@@ -45,10 +46,10 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-[700px]"
           >
-            <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
+            <h1 className="text-4xl md:text-8xl font-black mb-6 tracking-tighter drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
               Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] to-[#e87c1e]">Touch</span>
             </h1>
-            <p className="text-xl md:text-3xl text-green-50 font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="text-lg md:text-3xl text-green-50 font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               Whether you have a technical query or are looking to upgrade your farm, our experts are here to help.
             </p>
           </motion.div>
@@ -56,7 +57,7 @@ const Contact = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info Cards */}
@@ -108,7 +109,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="lg:col-span-2 bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-gray-200/50 border border-gray-100"
+              className="lg:col-span-2 bg-white rounded-3xl md:rounded-[2.5rem] p-6 md:p-12 shadow-2xl shadow-gray-200/50 border border-gray-100"
             >
               {submitted ? (
                 <motion.div 
@@ -180,7 +181,7 @@ const Contact = () => {
                       disabled={isSubmitting}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="md:col-span-2 py-5 bg-[#1a4d2e] text-white font-bold rounded-2xl hover:bg-[#133c23] transition-all shadow-xl shadow-[#1a4d2e]/20 flex items-center justify-center disabled:opacity-70"
+                      className="md:col-span-2 py-4 md:py-5 bg-[#1a4d2e] text-white font-bold rounded-2xl hover:bg-[#133c23] transition-all shadow-xl shadow-[#1a4d2e]/20 flex items-center justify-center disabled:opacity-70"
                     >
                       {isSubmitting ? (
                         <div className="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>

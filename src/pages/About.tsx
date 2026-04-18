@@ -23,11 +23,12 @@ const About = () => {
   return (
     <div className="">
       {/* Header - Professional Setup */}
-      <section className="relative h-[600px] text-white overflow-hidden flex items-center px-[8%]">
+      <section className="relative h-[450px] md:h-[600px] text-white overflow-hidden flex items-center px-6 md:px-[8%]">
         <div className="absolute inset-0 z-0">
           <img 
             src="/about.png" 
             alt="About Background" 
+            fetchpriority="high"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40 z-10"></div>
@@ -39,10 +40,10 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-[800px]"
           >
-            <h1 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
+            <h1 className="text-4xl md:text-8xl font-black mb-6 tracking-tighter drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
               About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] to-[#e87c1e]">Purvanchal Agrico</span>
             </h1>
-            <p className="text-xl md:text-3xl text-green-50 font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+            <p className="text-lg md:text-3xl text-green-50 font-bold leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               A legacy of trust, powering the dreams of farmers in Uttar Pradesh since our inception.
             </p>
           </motion.div>
@@ -50,13 +51,13 @@ const About = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-16 md:py-24 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="prose prose-lg prose-green mx-auto"
+            className="prose prose-base md:prose-lg prose-green mx-auto"
           >
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Story</h2>
             <p className="text-gray-600 leading-relaxed mb-6">
@@ -101,7 +102,7 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -147,7 +148,7 @@ const About = () => {
       </section>
 
       {/* Milestone Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -163,9 +164,9 @@ const About = () => {
             Every ACE tractor sold through Purvanchal Agrico comes with the manufacturer's warranty and the assurance of 100% genuine parts and factory-trained service.
           </p>
           <div className="flex justify-center flex-wrap gap-8 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-            <img src="/trust_badge.png" alt="Sticker" className="h-16 w-auto" />
+            <img src="/trust_badge.png" alt="Sticker" loading="lazy" className="h-16 w-auto" />
             <div className="h-8 w-px bg-gray-200"></div>
-            <span className="text-2xl font-bold text-gray-400">ACE Authorized Dealer</span>
+            <span className="text-xl md:text-2xl font-bold text-gray-400">ACE Authorized Dealer</span>
           </div>
         </motion.div>
       </section>
